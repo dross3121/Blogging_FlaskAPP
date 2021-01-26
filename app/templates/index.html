@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+	{% if title %}
+    <title>{{ title }} - Deshawn's Blog</title>
+    {% else %}
+    <title>Welcome to Deshawn Blog!</title>
+    {% endif %}
+
+    <h1>Hey What's up, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b> {{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
