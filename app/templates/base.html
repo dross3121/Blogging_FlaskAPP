@@ -1,16 +1,22 @@
 <html>
     <head>
       {% if title %}
-      <title>{{ title }} - Deshawn's Blog</title>
+      <title>{{ title }} - Talk About it! Blog</title>
       {% else %}
       <title>Welcome to Deshawn's Blog</title>
       {% endif %}
     </head>
     <body>
         <div>
-          Deshawn's Blog: 
+          Let's Talk About it!: 
           <a href="{{ url_for('index') }}">Home</a>
+          {% if current_user.is_anonymous %}
           <a href="{{ url_for('login') }}">Login</a>
+          {% else %}
+           <a href="{{ url_for('user', username=current_user.username) }}">Profile
+           </a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+          {% endif %}
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}

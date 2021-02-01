@@ -10,7 +10,7 @@
     <title>Welcome to Deshawn Blog!</title>
     {% endif %}
 
-    <h1>Hey What's up, {{ user.username }}!</h1>
+    <h1>Hey What's up, {{ current_user.username }}!</h1>
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <b> {{ post.body }}</b></p></div>
     {% endfor %}
