@@ -4,6 +4,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import login
 from hashlib import md5
+from time import time
+import jwt
+from app import app
+
 
 @login.user_loader
 def load_user(id):
@@ -37,18 +41,24 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
-    def follow(self, user):
+	def follow(self, user):
 	    if not self.is_following(user):
 	        self.followed.append(user)
 
-    def unfollow(self, user):
-        if self.is_following(user):
-            self.followed.remove(user)
+	def unfollow(self, user):
+	    if self.is_following(user):
+	        self.followed.remove(user)
 
-    def is_following(self, user):
-        return self.followed.filter(
-            followers.c.followed_id == user.id).count() > 0
-	
+	def is_following(self, user):
+	    return self.followed.filter(
+	        followers.c.followed_id == user.id).count() > 0
+        
+	def followed_posts(self):
+	    followed = Post.query.join(
+	        followers, (followers.c.followed_id == Post.user_id)).filter(
+	            followers.c.follower_id == self.id)
+	    own = Post.query.filter_by(user_id=self.id)
+	    return followed.union(own).order_by(Post.timestamp.desc())
 
 
 	def avatar(self, size):
@@ -78,6 +88,19 @@ class User(UserMixin, db.Model):
 		'''
 		return check_password_hash(self.password_hash, password)
 
+	def get_reset_password_token(self, expires_in=600):
+	    return jwt.encode(
+	        {'reset_password': self.id, 'exp': time() + expires_in},
+	        app.config['SECRET_KEY'], algorithm='HS256')
+
+	@staticmethod
+	def verify_reset_password_token(token):
+		try:
+			id = jwt.decode(token, app.config['SECRET_KEY'],
+                            algorithms=['HS256'])['reset_password']
+		except:
+			    return
+		return User.query.get(id)
 
 class Post(db.Model):
 	'''
@@ -89,6 +112,7 @@ class Post(db.Model):
 	timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 	# user_id variable was initialized as a foreign key to user.id which means it reference id form the user table in the db
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+	language = db.Column(db.String(5))
 
 	def __repr__(self):
 		return '<Post {}>'.format(self.body)
