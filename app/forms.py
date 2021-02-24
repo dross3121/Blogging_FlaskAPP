@@ -11,10 +11,10 @@ class LoginForm(FlaskForm):
 	'''
 	capture users login name and password to log user in.
     '''
-	 username = StringField(_l('Username'), validators=[DataRequired()])
-	 password = PasswordField(_l('Password'), validators=[DataRequired()])
-	 remember_me = BooleanField(_l('Remember Me'))
-	 submit = SubmitField(_l('Sign In'))
+	username = StringField(_l('Username'), validators=[DataRequired()])
+	password = PasswordField(_l('Password'), validators=[DataRequired()])
+	remember_me = BooleanField(_l('Remember Me'))
+	submit = SubmitField(_l('Sign In'))
 
 
 class RegistrationForm(FlaskForm):

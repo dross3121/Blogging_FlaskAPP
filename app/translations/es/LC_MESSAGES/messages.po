@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-23 16:46-0500\n"
+"POT-Creation-Date: 2021-02-23 17:54-0500\n"
 "PO-Revision-Date: 2021-02-23 17:01-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,145 +18,149 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.0\n"
 
+#: app/__init__.py:19
+msgid "Please log in to access this page."
+msgstr ""
+
 #: app/email.py:16
 msgid "[Lets Talk About it Blog] Reset Your Password"
-msgstr ""
+msgstr "[Lets Talk About it Blog]  Nueva Contraseña"
 
 #: app/forms.py:14 app/forms.py:25 app/forms.py:54
 msgid "Username"
-msgstr ""
+msgstr "Nombre de usuario"
 
 #: app/forms.py:15 app/forms.py:27 app/forms.py:81
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: app/forms.py:16
 msgid "Remember Me"
-msgstr ""
+msgstr "Recordarme"
 
 #: app/forms.py:17 app/routes.py:66 app/templates/login.html:6
 msgid "Sign In"
-msgstr ""
+msgstr "Ingresar"
 
 #: app/forms.py:26 app/forms.py:77
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: app/forms.py:29 app/forms.py:82
 msgid "Repeat Password"
-msgstr ""
+msgstr "Repetir Contraseña"
 
 #: app/forms.py:30 app/routes.py:85 app/templates/register.html:5
 msgid "Register"
-msgstr ""
+msgstr "Registrarse"
 
 #: app/forms.py:38 app/forms.py:66
 msgid "Please use a different username."
-msgstr ""
+msgstr "Por favor use un nombre de usuario diferente."
 
 #: app/forms.py:47
 msgid "Please use a different email address."
-msgstr ""
+msgstr "Por favor use una dirección de email diferente."
 
 #: app/forms.py:55
 msgid "About me"
-msgstr ""
+msgstr "Acerca de mí"
 
 #: app/forms.py:56 app/forms.py:74
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: app/forms.py:72
 msgid "Say something"
-msgstr ""
+msgstr "Dí algo"
 
 #: app/forms.py:78 app/forms.py:83
 msgid "Request Password Reset"
-msgstr ""
+msgstr "Pedir una nueva contraseña"
 
 #: app/routes.py:33
 msgid "Your post is now live!"
-msgstr ""
+msgstr "¡Tu artículo ha sido publicado!"
 
 #: app/routes.py:42
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: app/routes.py:58
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Nombre de usuario o contraseña inválidos"
 
 #: app/routes.py:81
 msgid "Congratulations, Welcome to Let's Talk About it!"
-msgstr ""
+msgstr "¡Felicitaciones, Welcome to Let's Talk About it!"
 
 #: app/routes.py:115
 msgid "Your changes have been saved."
-msgstr ""
+msgstr "Tus cambios han sido salvados."
 
 #: app/routes.py:120 app/templates/edit_profile.html:5
 msgid "Edit Profile"
-msgstr ""
+msgstr "Editar Perfil"
 
 #: app/routes.py:130 app/routes.py:150
 #, python-format
 msgid "User %(username)s not found."
-msgstr ""
+msgstr "El usuario %(username)s no ha sido encontrado."
 
 #: app/routes.py:133
 msgid "You cannot follow yourself!"
-msgstr ""
+msgstr "¡No te puedes seguir a tí mismo!"
 
 #: app/routes.py:137
 #, python-format
 msgid "You are following %(username)s!"
-msgstr ""
+msgstr "¡Ahora estás siguiendo a %(username)s!"
 
 #: app/routes.py:153
 msgid "You cannot unfollow yourself!"
-msgstr ""
+msgstr "¡No te puedes dejar de seguir a tí mismo!"
 
 #: app/routes.py:157
 #, python-format
 msgid "You are not following %(username)s."
-msgstr ""
+msgstr "No estás siguiendo a %(username)s."
 
 #: app/routes.py:172
 msgid "Explore"
-msgstr ""
+msgstr "Explorar"
 
 #: app/routes.py:185
 msgid "Check your email for the instructions to reset your password"
-msgstr ""
+msgstr "Busca en tu email las instrucciones para crear una nueva contraseña"
 
 #: app/routes.py:188 app/templates/reset_password_request.html:5
 msgid "Reset Password"
-msgstr ""
+msgstr "Nueva Contraseña"
 
 #: app/routes.py:201
 msgid "Your password has been reset."
-msgstr ""
+msgstr "Tu contraseña ha sido cambiada."
 
 #: app/templates/404.html:4
 msgid "Not Found"
-msgstr ""
+msgstr "Página No Encontrada"
 
 #: app/templates/404.html:5 app/templates/500.html:6
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: app/templates/500.html:4
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Ha ocurrido un error inesperado"
 
 #: app/templates/500.html:5
 msgid "The administrator has been notified. Sorry for the inconvenience!"
-msgstr ""
+msgstr "El administrador ha sido notificado. ¡Lamentamos la inconveniencia!"
 
 #: app/templates/_post.html:14
 #, python-format
 msgid "%(username)s said %(when)s"
-msgstr ""
+msgstr "%(username)s dijo %(when)s"
 
 #: app/templates/_post.html:25
 msgid "Translate"
@@ -165,63 +169,63 @@ msgstr ""
 #: app/templates/index.html:5
 #, python-format
 msgid "Hi, %(username)s!"
-msgstr ""
+msgstr "¡Hola, %(username)s!"
 
 #: app/templates/index.html:17 app/templates/user.html:39
 msgid "Newer posts"
-msgstr ""
+msgstr "Artículos siguientes"
 
 #: app/templates/index.html:22 app/templates/user.html:44
 msgid "Older posts"
-msgstr ""
+msgstr "Artículos previos"
 
 #: app/templates/login.html:13
 msgid "New User?"
-msgstr ""
+msgstr "¿Usuario Nuevo?"
 
 #: app/templates/login.html:13
 msgid "Click to Register!"
-msgstr ""
+msgstr "¡Haz click aquí para registrarte!"
 
 #: app/templates/login.html:15
 msgid "Forgot Your Password?"
-msgstr ""
+msgstr "¿Te olvidaste tu contraseña?"
 
 #: app/templates/login.html:16
 msgid "Click to Reset It"
-msgstr ""
+msgstr "Haz click aquí para pedir una nueva"
 
 #: app/templates/reset_password.html:5
 msgid "Reset Your Password"
-msgstr ""
+msgstr "Nueva Contraseña"
 
 #: app/templates/user.html:8
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: app/templates/user.html:10
 msgid "Last seen on"
-msgstr ""
+msgstr "Última visita"
 
 #: app/templates/user.html:11
 #, python-format
 msgid "%(count)d followers"
-msgstr ""
+msgstr "%(count)d seguidores"
 
 #: app/templates/user.html:11
 #, python-format
 msgid "%(count)d following"
-msgstr ""
+msgstr "siguiendo a %(count)d"
 
 #: app/templates/user.html:13
 msgid "Edit your profile"
-msgstr ""
+msgstr "Editar tu perfil"
 
 #: app/templates/user.html:18
 msgid "Follow"
-msgstr ""
+msgstr "Seguir"
 
 #: app/templates/user.html:25
 msgid "Unfollow"
-msgstr ""
+msgstr "Dejar de seguir"
 

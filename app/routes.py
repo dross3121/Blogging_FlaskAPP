@@ -11,35 +11,36 @@ from flask_babel import _, get_locale
 
 @app.before_request
 def before_request():
-	""" logs the users last log-in and time and writes to database 
-	"""
-	if current_user.is_authenticated:
-		current_user.last_seen = datetime.utcnow()
-		db.session.commit()
-        g.locale = str(get_locale()) 
+
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
+        g.locale = str(get_locale())
+
+""" 
+logs the users last log-in and time and writes to database 
+"""
+
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @login_required #--> User authenication required
 def index():
-	form = PostForm()
-	if form.validate_on_submit():
-        language = guess_language(form.post.data)
-        if language == 'UNKNOWN' or len(language) > 5:
-            language = ''
-		post =Post(body=form.post.data, author=current_user)
-		db.session.add(post)
-		db.session.commit()
-		flash(_("Your post is now live!"))
-		return redirect(url_for('index'))
-	page = request.args.get('page', 1, type=int)
-	posts = current_user.followed_posts().paginate(
+    form = PostForm()
+    if form.validate_on_submit():
+        post =Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(_("Your post is now live!"))
+        return redirect(url_for('index'))
+    page = request.args.get('page', 1, type=int)
+    posts = current_user.followed_posts().paginate(
 	    page, app.config['POSTS_PER_PAGE'], False)
-	next_url = url_for('index', page=posts.next_num) \
+    next_url = url_for('index', page=posts.next_num) \
 	    if posts.has_next else None
-	prev_url = url_for('index', page=posts.prev_num) \
+    prev_url = url_for('index', page=posts.prev_num) \
 	    if posts.has_prev else None
-	return render_template('index.html', title=_('Home'), form=form,
+    return render_template('index.html', title=_('Home'), form=form,
 	                       posts=posts.items, next_url=next_url,
 	                       prev_url=prev_url)		
 
